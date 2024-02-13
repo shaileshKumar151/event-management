@@ -1,6 +1,23 @@
-# Sample AEM project template
+# Sample Event Registration project
 
-This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
+This is an AEM project which allows users to register for events.
+
+Event Registration page: /content/event-management/us/en/event-registration.html\
+Thank you page: /content/event-management/us/en/event-registration/thank-you.html
+
+## Java Classes written
+* EventRegistrationServlet.java
+  * This is the main servlet which handles the post response from the Event Registration form. There is server side validations on the required fields before passing on the data to an API.
+* EventRegistrationService.java
+  * The Service class which is responsible for making the http request to the registration API and handle the response.
+* EventRegistrationRequest.java
+  * The POJO class to create the request object before the API call.
+* EventRegistrationResponse.java
+  * The POJO class to map the API response to Java object.
+
+### Unit Tests
+* EventRegistrationServletTest.java
+
 
 ## Modules
 
