@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:lastModified="{Date}2024-02-13T10:59:48.324+11:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2024-02-13T11:00:02.672+11:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:template="/conf/event-management/settings/wcm/templates/page-content"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Event Registration"
+        jcr:uuid="270ebc68-2cc2-4867-ab19-06b13c400c97"
+        sling:resourceType="event-management/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="event-management/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="event-management/components/container"
+                layout="responsiveGrid">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="event-management/components/title"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="event-management/components/container"
+                    layout="responsiveGrid">
+                    <image
+                        jcr:created="{Date}2024-02-13T10:51:53.981+11:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-02-13T10:51:53.981+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="event-management/components/image"/>
+                    <container
+                        jcr:created="{Date}2024-02-13T09:15:42.362+11:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-02-13T10:33:32.293+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="event-management/components/form/container"
+                        action="/content/usergenerated/event-management/us/en/event-registration/cq-gen1707776142407/"
+                        actionType="core/wcm/components/form/actions/rpc"
+                        errorMessage="An error has occurred. Please try again!"
+                        externalServiceEndPointUrl="http://localhost:4503/bin/event-management/events/register.json"
+                        id="registrationForm"
+                        redirect="/content/event-management/us/en/event-registration/thank-you">
+                        <text
+                            jcr:created="{Date}2024-02-13T09:17:33.999+11:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-02-13T09:18:25.108+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="First name"
+                            sling:resourceType="event-management/components/form/text"
+                            id="firstName"
+                            name="firstName"
+                            required="true"
+                            requiredMessage="First name is required"
+                            rows="2"
+                            type="text"/>
+                        <text_1912875707
+                            jcr:created="{Date}2024-02-13T09:17:37.722+11:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-02-13T09:26:27.205+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Last name"
+                            sling:resourceType="event-management/components/form/text"
+                            id="lastName"
+                            name="lastName"
+                            required="true"
+                            requiredMessage="Last name is required"
+                            rows="2"
+                            type="text"/>
+                        <text_600515207
+                            jcr:created="{Date}2024-02-13T09:17:43.749+11:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-02-13T09:27:01.352+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Email"
+                            sling:resourceType="event-management/components/form/text"
+                            constraintMessage="Please provide a valid email address"
+                            id="email"
+                            name="email"
+                            required="true"
+                            requiredMessage="Email is required"
+                            rows="2"
+                            type="email"/>
+                        <button
+                            jcr:created="{Date}2024-02-13T09:17:48.357+11:00"
+                            jcr:createdBy="admin"
+                            jcr:lastModified="{Date}2024-02-13T10:44:25.564+11:00"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Register"
+                            sling:resourceType="event-management/components/form/button"
+                            id="register"
+                            name="Register"
+                            type="submit"/>
+                    </container>
+                </container>
+            </container>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2024-02-13T10:59:48.300+11:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"
+            fileReference="/content/dam/event-management/asset.jpg"/>
+    </jcr:content>
+    <thank-you/>
+</jcr:root>

@@ -57,6 +57,7 @@ public class EventRegistrationRequest {
                 this.body = objectMapper.writeValueAsString(bodyData);
             } catch (JsonProcessingException e) {
                 LOG.error("Error while creating Request object: {} - {}", e.getMessage());
+                e.printStackTrace();
             }
         }
 
@@ -64,15 +65,7 @@ public class EventRegistrationRequest {
         return body;
     }
 
-    public String getContentType() {
-        return contentType;
-    }
-
     private void setContentType(String contentType) {
         this.contentType = contentType;
-    }
-
-    public Map<String, String> getBodyData() {
-        return bodyData;
     }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-02-11T16:09:11.676+11:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/event-management/settings/wcm/templates/page-content"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Thank You"
+        sling:resourceType="event-management/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="event-management/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="event-management/components/container"
+                layout="responsiveGrid">
+                <title
+                    jcr:lastModified="{Date}2024-02-11T16:09:11.665+11:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title=" "
+                    sling:resourceType="event-management/components/title"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="event-management/components/container"
+                    layout="responsiveGrid">
+                    <text
+                        jcr:created="{Date}2024-02-11T16:07:43.234+11:00"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2024-02-11T16:09:03.511+11:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="event-management/components/text"
+                        text="&lt;p>You have been successfully registered for the event.&lt;br>&#xd;&#xa;An email will be sent to your registered email soon with all the details.&lt;/p>&#xd;&#xa;"
+                        textIsRich="true"/>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

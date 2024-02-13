@@ -3,37 +3,24 @@ package com.adobe.assignment.core.servlets;
 import com.adobe.assignment.core.beans.EventRegistrationRequest;
 import com.adobe.assignment.core.beans.EventRegistrationResponse;
 import com.adobe.assignment.core.services.EventRegistrationService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.entity.ContentType;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.ServletResolverConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-import org.apache.sling.settings.SlingSettingsService;
 import org.osgi.framework.Constants;
-import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
-import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Pattern;
 
-import static java.text.MessageFormat.format;
 import static javax.servlet.http.HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 import static org.apache.sling.api.SlingHttpServletResponse.SC_BAD_REQUEST;
 import static org.apache.sling.api.SlingHttpServletResponse.SC_OK;
@@ -51,7 +38,6 @@ import static org.apache.sling.api.SlingHttpServletResponse.SC_OK;
                 ServletResolverConstants.SLING_SERVLET_EXTENSIONS + "=json"
         }
 )
-@Designate(ocd = EventRegistrationServlet.Configuration.class)
 public class EventRegistrationServlet extends SlingAllMethodsServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(EventRegistrationServlet.class);
@@ -65,10 +51,6 @@ public class EventRegistrationServlet extends SlingAllMethodsServlet {
     public static final String PARAMETER_EMAIL = "email";
     public static final String PARAMETER_EVENT_ID = "eventId";
 
-    private static final Pattern NAME_PATTTERN = Pattern.compile("^[a-zA-Z' -]*$");
-
-    private static final Pattern EMAIL_PATTTERN = Pattern.compile("^[a-zA-Z' -]*$");
-
     /**
      * Configuration service
      */
@@ -80,16 +62,10 @@ public class EventRegistrationServlet extends SlingAllMethodsServlet {
         )
         boolean isMockServiceEnabled() default true;
     }
-    private boolean isMockServiceEnabled;
 
     @Reference
     private transient EventRegistrationService eventRegistrationService;
 
-    @Activate
-    @Modified
-    protected void activate(Configuration configuration) {
-        isMockServiceEnabled = configuration.isMockServiceEnabled();
-    }
     @Override
     protected final void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws
             ServletException, IOException {
@@ -119,11 +95,6 @@ public class EventRegistrationServlet extends SlingAllMethodsServlet {
         EventRegistrationRequest registrationRequest = new EventRegistrationRequest(firstName, lastName, email, eventId);
         try {
             EventRegistrationResponse registrationResponse;
-/*            if (isMockServiceEnabled) {
-                //registrationResponse = promotionRetrieverMock.getPromotion(offerRequest, request.getResourceResolver());
-            } else {
-                registrationResponse = eventRegistrationService.register(registrationRequest);
-            }*/
             registrationResponse = eventRegistrationService.register(registrationRequest);
 
             if (SC_OK == registrationResponse.getCode()) {

@@ -8,6 +8,7 @@ import com.google.common.base.Stopwatch;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
@@ -39,6 +40,8 @@ public class EventRegistrationService {
 
     private static final Logger LOG = LoggerFactory.getLogger(EventRegistrationService.class);
 
+    private static final String DEFAULT_RESPONSE = "{\"status\": \"success\"}";
+
     /**
      * Configuration service
      */
@@ -55,7 +58,7 @@ public class EventRegistrationService {
                 name = "API endpoint",
                 description = "Endpoint for registration API"
         )
-        String apiEndpoint() default StringUtils.EMPTY;
+        String apiEndpoint() default "http://localhost:4503/";
     }
 
     private int timeOutSecond;
@@ -86,10 +89,13 @@ public class EventRegistrationService {
 
     private EventRegistrationResponse executeRequest(EventRegistrationRequest request) throws IOException {
         Stopwatch timer = Stopwatch.createStarted();
-        LOG.info("PromotionRetrieverImpl executeRequest {} starts");
+        LOG.info("EventRegistrationService executeRequest {} starts");
         EventRegistrationResponse response = new EventRegistrationResponse();
-            executePostRequest(httpClient, apiEndpoint, request, response);
-        LOG.info("PromotionRetrieverImpl executeRequest end: {}", timer);
+        //the below lines should be executed when we have the actual API available.
+        //executePostRequest(httpClient, apiEndpoint, request, response);
+        response.setCode(HttpStatus.SC_OK);
+        response.setBody(DEFAULT_RESPONSE);
+        LOG.info("EventRegistrationService executeRequest end: {}", timer);
         return response;
     }
 
