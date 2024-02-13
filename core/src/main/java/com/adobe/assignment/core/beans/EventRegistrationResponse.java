@@ -13,11 +13,6 @@ public class EventRegistrationResponse {
     public EventRegistrationResponse() {
     }
 
-    public EventRegistrationResponse(Integer code, String body) {
-        this.body = body;
-        this.code = code;
-    }
-
     public String getBody() {
         return this.body;
     }

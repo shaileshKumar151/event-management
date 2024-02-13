@@ -30,8 +30,6 @@ public class EventRegistrationRequest {
 
     private String contentType;
 
-    private Map<String, String> headerMap;
-
     public EventRegistrationRequest(String firstName, String lastName, String email, String eventId) {
         LOG.debug("Init EventRegistrationRequest, firstName: {0}, lastName: {1}, eventId: {2}", firstName, lastName, eventId);
         this.firstName = firstName;

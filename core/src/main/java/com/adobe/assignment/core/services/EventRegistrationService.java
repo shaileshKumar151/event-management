@@ -4,8 +4,6 @@ import com.adobe.assignment.core.beans.EventRegistrationRequest;
 import com.adobe.assignment.core.beans.EventRegistrationResponse;
 import com.drew.lang.annotations.NotNull;
 import com.google.common.base.Stopwatch;
-
-import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;

@@ -41,9 +41,6 @@ import static org.apache.sling.api.SlingHttpServletResponse.SC_OK;
 public class EventRegistrationServlet extends SlingAllMethodsServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(EventRegistrationServlet.class);
-    private static final String DEFAULT_FAULT = "An unknown error has occurred during the API call";
-    private static final String UNKNOWN_ERROR_CODE = "Unknown Error";
-    private static final String BAD_REQUEST_ERROR_CODE = "Bad Request";
 
     private static final long serialVersionUID = -4251977534692231553L;
     public static final String PARAMETER_FIRST_NAME = "firstName";
